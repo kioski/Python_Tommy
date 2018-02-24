@@ -9,38 +9,33 @@ class  Verify_Share_Via_Social_Media(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
-        # self.driver.maximize_window()
+        
         
 
     def test_Open_Website(self):
 
-        self.driver.get("https://app.mytommy.com/")
+        # self.driver.maximize_window()
         driver = self.driver
-        wait = WebDriverWait(self.driver, 180)
-        # new WebDriverWait(driver, TimeSpan.FromSeconds(60)).Until(ExpectedConditions.ElementExists((By.Id("login_username"))));
-        # driver.FindElement(By.Name("username")).SendKeys("eagalleto@gmail.com");
-        driver.find_element_by_name("username").SendKeys("eagalleto@gmail.com")
+        driver.get("https://app.mytommy.com/")
+        
 
-        driver.FindElement(By.ClassName("button-fill")).Click();
-        Assert.AreEqual(driver.FindElement(By.Name("username")).GetAttribute("value"), "eagalleto@gmail.com");
+        driver.implicitly_wait(10)
+        driver.find_element_by_name("username").send_keys("eagalleto@gmail.com")
+        driver.implicitly_wait(5)
+        driver.find_element_by_class_name("button-fill").click();
 
-        # new WebDriverWait(driver, TimeSpan.FromSeconds(60)).Until(ExpectedConditions.ElementExists((By.ClassName("submit-login"))));
-        driver.FindElement(By.ClassName("password")).SendKeys("Tommy123");
-        # new WebDriverWait(driver, TimeSpan.FromSeconds(60)).Until(ExpectedConditions.ElementToBeClickable((By.ClassName("submit-login"))));
-        driver.FindElement(By.ClassName("submit-login")).Click();
-        # new WebDriverWait(driver, TimeSpan.FromSeconds(60)).Until(ExpectedConditions.ElementExists((By.ClassName("icon-chat"))));
+        assert "eagalleto@gmail.com" in driver.find_element_by_name("username").get_attribute("value")
 
-        Assert.IsTrue(driver.FindElement(By.ClassName("chat-tab-link")).GetAttribute("innerText").Contains("Chats"));
+        driver.implicitly_wait(5)
+        driver.find_element_by_class_name("password").send_keys("Tommy123");
+        driver.find_element_by_class_name("submit-login").click();
+        self.assertTrue("Chats" in driver.find_element_by_class_name("chat-tab-link").get_attribute("innerText"))
 
-        driver.FindElement(By.Id("main-menu-drag-handle")).Click();
-        # new WebDriverWait(driver, TimeSpan.FromSeconds(60)).Until(ExpectedConditions.ElementToBeClickable((By.XPath("//*[@id=\"main-menu-administration\"]/div[2]/ul/li[1]/a"))));
-        driver.FindElement(By.XPath("//*[@id=\"main-menu-administration\"]/div[2]/ul/li[1]/a")).Click();
-        # new WebDriverWait(driver, TimeSpan.FromSeconds(60)).Until(ExpectedConditions.ElementToBeClickable((By.ClassName("logout-button"))));
-        # Thread.Sleep(1000);
-        driver.FindElement(By.ClassName("logout-button")).Click();
-        # new WebDriverWait(driver, TimeSpan.FromSeconds(60)).Until(ExpectedConditions.ElementExists((By.Name("username"))));
+        driver.find_element_by_id("main-menu-drag-handle").click();
+        driver.find_element_by_xpath("//*[@id=\"main-menu-administration\"]/div[2]/ul/li[1]/a").click();
+        driver.find_element_by_class_name("logout-button").click();
 
-        Assert.AreEqual(driver.FindElement(By.Name("username")).GetAttribute("placeholder"), "Email address / Phone");
+        self.assertEqual("Email address / Phone", driver.find_element_by_class_name("username").get_attribute("placeholder"))
 
     def tearDown(self):
         self.driver.close()
