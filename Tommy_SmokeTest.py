@@ -6,8 +6,7 @@ from selenium.webdriver.support import expected_conditions
 import time
 import random
 import uuid
-from TestActions import *
-
+from Keywords import *
 
 class TommyTests(unittest.TestCase):
 
@@ -16,36 +15,37 @@ class TommyTests(unittest.TestCase):
         self.driver.maximize_window()
         self.driver.get("https://app.mytommy.com/")
 
-    # def test_1LoginAndLogout(self):
+    def test_1LoginAndLogout(self):
 
-        # driver = self.driver
+        driver = self.driver
 
-    #     #For Login
-    #     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_LoginUserName)))
-    #     driver.find_element_by_name(SelectorName_Username).send_keys(Email_Add)
-    #     driver.find_element_by_class_name(SelectorClass_NextButton).click()
+        #For Login
+        WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_LoginUserName)))
+        driver.find_element_by_name(SelectorName_Username).send_keys(Email_Add)
+        driver.find_element_by_class_name(SelectorClass_NextButton).click()
 
-    #     self.assertEqual(Email_Add, driver.find_element_by_name(SelectorName_Username).get_attribute("value"))
+        self.assertEqual(Email_Add, driver.find_element_by_name(SelectorName_Username).get_attribute("value"))
 
-    #     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_SubmitButton)))
-    #     driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
-    #     driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
+        WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_SubmitButton)))
+        driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
+        driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
+        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
         
-    #     self.assertEqual("Chats", driver.find_element_by_class_name(SelectorClass_ChatTitle).get_attribute("innerText"))
+        self.assertEqual("Chats", driver.find_element_by_class_name(SelectorClass_ChatTitle).get_attribute("innerText"))
 
-    #     #For Logout
-    #     driver.find_element_by_id(SelectorId_SidebarExpand).click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_SideBarChatIcon), "Chats"))
-    #     (driver.find_element_by_id(SelectorId_AdministrationMenu).find_elements_by_tag_name("img"))[0].click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_LogoutButton)))
-    #     driver.find_element_by_class_name(SelectorClass_LogoutButton).click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_NextButton)))
+        #For Logout
+        driver.find_element_by_id(SelectorId_SidebarExpand).click()
+        WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_SideBarChatIcon), "Chats"))
+        (driver.find_element_by_id(SelectorId_AdministrationMenu).find_elements_by_tag_name("img"))[0].click()
+        WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_SaveButton), "Save"))
+        WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_LogoutButton), "Logout"))
+        driver.find_element_by_class_name(SelectorClass_LogoutButton).click()
+        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_NextButton)))
         
-    #     self.assertEqual("Email address / Phone", driver.find_element_by_class_name(SelectorName_Username).get_attribute("placeholder"))
+        self.assertEqual("Email address / Phone", driver.find_element_by_class_name(SelectorName_Username).get_attribute("placeholder"))
 
-    # def tearDown(self):
-    #     self.driver.close()
+    def tearDown(self):
+        self.driver.close()
 
 
 
