@@ -10,7 +10,7 @@ SelectorId_SidebarExpand = "main-menu-drag-handle"
 SelectorId_AdministrationMenu = "main-menu-administration"
 SelectorClass_LogoutButton = "logout-button"
 SelectorClass_SideBarChatIcon = "menu-label"
-SelectorClass_SaveButton = "save-user-btn"
+SelectorClass_Administrator = "menu-title"
 Email_Add = "eagalleto@gmail.com"
 Password = "Tommy123"
 
