@@ -10,10 +10,10 @@ jobs:
           command: npm install browserstack 
       - run: 
           name: sauce testing
-          command: npm run-script sauce
+          command: python Tommy_SmokeTest.py
           environment:
-            SAUCE_USERNAME: # Refer to circleci.com/docs/2.0/env-vars documentation for info
-            SAUCE_ACCESS_KEY: # about setting up environment variables for auth secrets
+            SAUCE_USERNAME: masonfok1
+            SAUCE_ACCESS_KEY: yYkqqhe5936SdqbzsUxo
       - run: # Wait for app to be ready
           command: wget --retry-connrefused --no-check-certificate -T 30 http://localhost:5000
       - run: # Run selenium tests
