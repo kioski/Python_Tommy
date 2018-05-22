@@ -1,39 +1,22 @@
-# Python CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-python/ for more details
-#
 version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      - image: circleci/python:3.6.1
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/repo
-
+      - image: circleci/python:jessie-node-browsers
     steps:
       - checkout
-
-      # Download and cache dependencies
-
-      - run:
-          name: install dependencies
-          command: |            
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements.txt
-
-
-        
-      # run tests!
-      # this example uses Django's built-in test-runner
-      # other common Python testing frameworks include pytest and nose
-      # https://pytest.org
-      # https://nose.readthedocs.io
-      - run: python Tommy_SmokeTest.py
+      - run: 
+          name: Install BrowserStack 
+          command: npm install browserstack 
+      - run: 
+          name: sauce testing
+          command: npm run-script sauce
+          environment:
+            SAUCE_USERNAME: # Refer to circleci.com/docs/2.0/env-vars documentation for info
+            SAUCE_ACCESS_KEY: # about setting up environment variables for auth secrets
+      - run: # Wait for app to be ready
+          command: wget --retry-connrefused --no-check-certificate -T 30 http://localhost:5000
+      - run: # Run selenium tests
+          command: nosetests
+      - run: # wait for Sauce Connect to close the tunnel
+          command: killall --wait sc  
