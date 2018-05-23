@@ -51,7 +51,7 @@ class TommyTests(unittest.TestCase):
         WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_NextButton)))
 
         try:
-            self.assertEqual("Email address / Phone", driver.find_element_by_class_name(SelectorName_Username).get_attribute("placeholder"))
+            self.assertEqual("Email address /Phone", driver.find_element_by_class_name(SelectorName_Username).get_attribute("placeholder"))
 
         except AssertionError as Error:
 
