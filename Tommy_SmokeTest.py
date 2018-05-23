@@ -50,7 +50,7 @@ class TommyTests(unittest.TestCase):
         time.sleep(1)
         WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_NextButton)))
 
-        self.assertTrue("Email address / Phone", driver.find_element_by_class_name(SelectorName_Username).get_attribute("placeholder"))
+        self.assertTrue("Email addressPhone", driver.find_element_by_class_name(SelectorName_Username).get_attribute("placeholder"))
 
 
 
