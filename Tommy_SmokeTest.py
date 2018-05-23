@@ -59,50 +59,43 @@ class TommyTests(unittest.TestCase):
 
 
 
-    # def test_1bContacts_NewChat(self):
+    def test_1bContacts_NewChat(self):
         
-    #     driver = self.driver
+        driver = self.driver
 
-    #     WebDriverWait(driver, 30).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_LoginUserName)))
-    #     time.sleep(5)
-    #     driver.find_element_by_name(SelectorName_Username).send_keys(Email_Add)
-    #     driver.find_element_by_class_name(SelectorClass_NextButton).click()
-    #     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_SubmitButton)))
-    #     time.sleep(1)
-    #     driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
-    #     driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
-    #     time.sleep(3)
-    #     WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
-    #     driver.find_element_by_class_name(SelectorClass_AddNewMenu).click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
-    #     time.sleep(2)
-    #     (driver.find_element_by_class_name(SelectorClass_AddNewMenu_NewChat).find_elements_by_tag_name("img"))[0].click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_OverLay)))
-    #     time.sleep(2)
-    #     (driver.find_element_by_class_name(SelectorClass_AddNewMenu_NewChatCheckBox).find_elements_by_tag_name("div"))[0].click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_CheckBox)))
-    #     driver.find_element_by_class_name(SelectorClass_AddNewMenu_NewChatOkButton).click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_AddNewMenu_TextBox)))
-    #     Sample_Text = str(uuid.uuid1())[:8] + str(uuid.uuid1())[2:6]
-    #     time.sleep(1)
-    #     driver.find_element_by_id(SelectorId_AddNewMenu_TextBox).send_keys(Sample_Text)
-    #     (driver.find_element_by_class_name(SelectorClass_AddNewMenu_TextBoxSendBUtton).find_elements_by_tag_name("a"))[0].click()
-    #     time.sleep(2)
-      
-
-    #     try:
-
-    #         self.assertTrue(Sample_Text in driver.page_source)
-
-    #     except AssertionError as Error:
-
-    #         print("Error_2: " + str(Error) + " [Word Not Found]")
+        WebDriverWait(driver, 30).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_LoginUserName)))
+        time.sleep(5)
+        driver.find_element_by_name(SelectorName_Username).send_keys(Email_Add)
+        driver.find_element_by_class_name(SelectorClass_NextButton).click()
+        WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_SubmitButton)))
+        time.sleep(1)
+        driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
+        driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
+        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
+        time.sleep(3)
+        WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
+        driver.find_element_by_class_name(SelectorClass_AddNewMenu).click()
+        WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
+        time.sleep(2)
+        (driver.find_element_by_class_name(SelectorClass_AddNewMenu_NewChat).find_elements_by_tag_name("img"))[0].click()
+        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_OverLay)))
+        time.sleep(2)
+        (driver.find_element_by_class_name(SelectorClass_AddNewMenu_NewChatCheckBox).find_elements_by_tag_name("div"))[0].click()
+        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_CheckBox)))
+        driver.find_element_by_class_name(SelectorClass_AddNewMenu_NewChatOkButton).click()
+        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_AddNewMenu_TextBox)))
+        Sample_Text = str(uuid.uuid1())[:8] + str(uuid.uuid1())[2:6]
+        time.sleep(1)
+        driver.find_element_by_id(SelectorId_AddNewMenu_TextBox).send_keys(Sample_Text)
+        (driver.find_element_by_class_name(SelectorClass_AddNewMenu_TextBoxSendBUtton).find_elements_by_tag_name("a"))[0].click()
+        time.sleep(2)
+     
+            self.assertTrue(Sample_Text in driver.page_source)
 
 
 
-    # def tearDown(self):
-    #     self.driver.quit()
+    def tearDown(self):
+        self.driver.quit()
 
 
 
