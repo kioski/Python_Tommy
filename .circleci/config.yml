@@ -44,6 +44,8 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
+            python from Credentials import *
+            python from Keywords import *
             python Tommy_SmokeTest.py test
 
       - store_artifacts:
