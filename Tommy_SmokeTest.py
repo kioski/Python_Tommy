@@ -90,7 +90,7 @@ class TommyTests(unittest.TestCase):
         (driver.find_element_by_class_name(SelectorClass_AddNewMenu_TextBoxSendBUtton).find_elements_by_tag_name("a"))[0].click()
         time.sleep(2)
      
-            self.assertTrue(Sample_Text in driver.page_source)
+        self.assertTrue(Sample_Text in driver.page_source)
 
 
 
