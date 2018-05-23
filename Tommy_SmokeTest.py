@@ -14,8 +14,8 @@ class TommyTests(unittest.TestCase):
 
     def setUp(self):
 
-        self.driver = webdriver.Remote(command_executor,desired_capabilities_ios)
-        # self.driver = webdriver.Remote(command_executor,desired_capabilities_android)
+        # self.driver = webdriver.Remote(command_executor,desired_capabilities_ios)
+        self.driver = webdriver.Remote(command_executor,desired_capabilities_android)
 
         # self.driver = webdriver.Chrome()
         # self.driver.maximize_window()
@@ -23,42 +23,42 @@ class TommyTests(unittest.TestCase):
         self.driver.get("https://app.mytommy.com/")
 
 
-    # def test_1aLoginAndLogout(self):
+    def test_1aLoginAndLogout(self):
 
-    #     driver = self.driver
+        driver = self.driver
 
-    #     #For Login
-    #     WebDriverWait(driver, 30).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_LoginUserName)))
-    #     time.sleep(5)
-    #     driver.find_element_by_name(SelectorName_Username).send_keys(Email_Add)
-    #     driver.find_element_by_class_name(SelectorClass_NextButton).click()
-    #     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_SubmitButton)))
-    #     time.sleep(1)
-    #     driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
-    #     driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
+        #For Login
+        WebDriverWait(driver, 30).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_LoginUserName)))
+        time.sleep(5)
+        driver.find_element_by_name(SelectorName_Username).send_keys(Email_Add)
+        driver.find_element_by_class_name(SelectorClass_NextButton).click()
+        WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_SubmitButton)))
+        time.sleep(1)
+        driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
+        driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
+        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
         
-    #     self.assertEqual("Chats", driver.find_element_by_class_name(SelectorClass_ChatTitle).get_attribute("innerText"))
+        self.assertEqual("Chats", driver.find_element_by_class_name(SelectorClass_ChatTitle).get_attribute("innerText"))
 
-    #     #For Logout
-    #     driver.find_element_by_id(SelectorId_SidebarExpand).click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_Administrator), "Administration"))
-    #     (driver.find_element_by_id(SelectorId_AdministrationMenu).find_elements_by_tag_name("img"))[0].click()
-    #     WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_LogoutButton),"Logout"))
-    #     time.sleep(1)
-    #     driver.find_element_by_class_name(SelectorClass_LogoutButton).click()
-    #     time.sleep(1)
-    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_NextButton)))
+        #For Logout
+        driver.find_element_by_id(SelectorId_SidebarExpand).click()
+        WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_Administrator), "Administration"))
+        (driver.find_element_by_id(SelectorId_AdministrationMenu).find_elements_by_tag_name("img"))[0].click()
+        WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_LogoutButton),"Logout"))
+        time.sleep(1)
+        driver.find_element_by_class_name(SelectorClass_LogoutButton).click()
+        time.sleep(1)
+        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_NextButton)))
 
-    #     try:
-    #         self.assertEqual("Email address / Phone", driver.find_element_by_class_name(SelectorName_Username).get_attribute("placeholder"))
+        try:
+            self.assertEqual("Email address / Phone", driver.find_element_by_class_name(SelectorName_Username).get_attribute("placeholder"))
 
-    #     except AssertionError as Error:
+        except AssertionError as Error:
 
-    #         print("Error_1: " + str(Error))
+            print("Error_1: " + str(Error))
 
-    # def tearDown(self):
-    #     self.driver.quit()
+    def tearDown(self):
+        self.driver.quit()
 
 
 
@@ -199,87 +199,87 @@ class TommyTests(unittest.TestCase):
 
 
 
-    def test_1eContacts_AddContacts_InvitationLink(self):
+    # def test_1eContacts_AddContacts_InvitationLink(self):
         
-        driver = self.driver
+    #     driver = self.driver
 
-        WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_LoginUserName)))
-        time.sleep(5)
-        driver.find_element_by_name(SelectorName_Username).send_keys(Email_Add)
-        driver.find_element_by_class_name(SelectorClass_NextButton).click()
-        WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_SubmitButton)))
-        driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
-        driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
-        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
-        time.sleep(3)
-        WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
-        driver.find_element_by_class_name(SelectorClass_AddNewMenu).click()
-        WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
-        time.sleep(2)
-        (driver.find_element_by_class_name(SelectorClass_AddNewMenu_NewChat).find_elements_by_tag_name("img"))[1].click()
-        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_AddNewMenu_Invite)))
-        driver.find_element_by_id(SelectorId_AddNewMenu_Invite).click()
-        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_AddNewMenu_Overlay)))
-        time.sleep(1)
-        (driver.find_element_by_class_name(SelectorClass_AddNewMenu_InviteSMS).find_elements_by_tag_name("div"))[1].click()
-        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_AddNewMenu_OverlayInvite)))
-        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_AddNewMenu_InviteSMS_DialogBoxTitle)))
-        WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_AddNewMenu_InviteSMS_DialogBoxTitle), "Invitation Link"))
-        driver.get(driver.find_element_by_name(SelectorName_AddNewMenu_InviteEmail_Link).get_attribute("value"))
+    #     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_LoginUserName)))
+    #     time.sleep(5)
+    #     driver.find_element_by_name(SelectorName_Username).send_keys(Email_Add)
+    #     driver.find_element_by_class_name(SelectorClass_NextButton).click()
+    #     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_SubmitButton)))
+    #     driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
+    #     driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
+    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
+    #     time.sleep(3)
+    #     WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
+    #     driver.find_element_by_class_name(SelectorClass_AddNewMenu).click()
+    #     WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
+    #     time.sleep(2)
+    #     (driver.find_element_by_class_name(SelectorClass_AddNewMenu_NewChat).find_elements_by_tag_name("img"))[1].click()
+    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_AddNewMenu_Invite)))
+    #     driver.find_element_by_id(SelectorId_AddNewMenu_Invite).click()
+    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_AddNewMenu_Overlay)))
+    #     time.sleep(1)
+    #     (driver.find_element_by_class_name(SelectorClass_AddNewMenu_InviteSMS).find_elements_by_tag_name("div"))[1].click()
+    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_AddNewMenu_OverlayInvite)))
+    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_AddNewMenu_InviteSMS_DialogBoxTitle)))
+    #     WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_AddNewMenu_InviteSMS_DialogBoxTitle), "Invitation Link"))
+    #     driver.get(driver.find_element_by_name(SelectorName_AddNewMenu_InviteEmail_Link).get_attribute("value"))
 
-        try:
-            self.assertTrue("Welcome to Tommy!" in driver.page_source)
+    #     try:
+    #         self.assertTrue("Welcome to Tommy!" in driver.page_source)
 
-        except AssertionError as Error:
+    #     except AssertionError as Error:
 
-            print("Error_5: " + str(Error))
-
-
-    def tearDown(self):
-        self.driver.quit()
+    #         print("Error_5: " + str(Error))
 
 
+    # def tearDown(self):
+    #     self.driver.quit()
 
 
-    def test_1fAddTeam(self):
+
+
+    # def test_1fAddTeam(self):
         
-        driver = self.driver
+    #     driver = self.driver
 
-        WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_LoginUserName)))
-        time.sleep(5)
-        driver.find_element_by_name(SelectorName_Username).send_keys(Email_Add)
-        driver.find_element_by_class_name(SelectorClass_NextButton).click()
-        WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_SubmitButton)))
-        driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
-        driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
-        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
-        driver.find_element_by_id(SelectorId_SidebarExpand).click()
-        WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_Administrator), "Administration"))
-        (driver.find_element_by_id(SelectorId_AdministrationMenu).find_elements_by_tag_name("img"))[2].click()
-        WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_Administrator), "Administration"))
+    #     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_LoginUserName)))
+    #     time.sleep(5)
+    #     driver.find_element_by_name(SelectorName_Username).send_keys(Email_Add)
+    #     driver.find_element_by_class_name(SelectorClass_NextButton).click()
+    #     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_SubmitButton)))
+    #     driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
+    #     driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
+    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
+    #     driver.find_element_by_id(SelectorId_SidebarExpand).click()
+    #     WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_Administrator), "Administration"))
+    #     (driver.find_element_by_id(SelectorId_AdministrationMenu).find_elements_by_tag_name("img"))[2].click()
+    #     WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_Administrator), "Administration"))
 
-        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located((By.ID, SelectorId_AddTeamMenu)))
-        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_AddTeamMenu)))
-        WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_AddTeam_Continue), "Continue"))
-        driver.find_element_by_name(SelectorName_AddTeam_Name).send_keys(str(uuid.uuid1())[:8])
-        driver.find_element_by_name(SelectorName_AddTeam_Email).send_keys(str(uuid.uuid1())[:8]+"@gmail.com")
-        driver.find_element_by_name(SelectorName_AddTeam_Phone).send_keys("+63" + "912" + '{:07}'.format(random.randrange(1, 9**3)))
-        driver.find_element_by_class_name(SelectorClass_AddTeam_ContinueButton).click()
-        time.sleep(2)
-        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, SelectorClass_AddTeam_Notification)))
-        WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_AddTeam_Notification)))
+    #     WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located((By.ID, SelectorId_AddTeamMenu)))
+    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_AddTeamMenu)))
+    #     WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_AddTeam_Continue), "Continue"))
+    #     driver.find_element_by_name(SelectorName_AddTeam_Name).send_keys(str(uuid.uuid1())[:8])
+    #     driver.find_element_by_name(SelectorName_AddTeam_Email).send_keys(str(uuid.uuid1())[:8]+"@gmail.com")
+    #     driver.find_element_by_name(SelectorName_AddTeam_Phone).send_keys("+63" + "912" + '{:07}'.format(random.randrange(1, 9**3)))
+    #     driver.find_element_by_class_name(SelectorClass_AddTeam_ContinueButton).click()
+    #     time.sleep(2)
+    #     WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, SelectorClass_AddTeam_Notification)))
+    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_AddTeam_Notification)))
 
-        try:
-            self.assertEqual("Your team account has been created!", (driver.find_element_by_class_name(SelectorClass_AddTeam_Notification).find_elements_by_tag_name("div"))[5].get_attribute("innerText"))
+    #     try:
+    #         self.assertEqual("Your team account has been created!", (driver.find_element_by_class_name(SelectorClass_AddTeam_Notification).find_elements_by_tag_name("div"))[5].get_attribute("innerText"))
 
-        except AssertionError as Error:
+    #     except AssertionError as Error:
 
-            print("Error_6: " + str(Error))
+    #         print("Error_6: " + str(Error))
         
 
 
-    def tearDown(self):
-        self.driver.quit()
+    # def tearDown(self):
+    #     self.driver.quit()
 
 
 

@@ -41,7 +41,7 @@ jobs:
       # https://pytest.org
       # https://nose.readthedocs.io
       - run:
-          name: run Test
+          name: Tommy Test
           command: |
             . venv/bin/activate
             python Tommy_SmokeTest.py 
