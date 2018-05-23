@@ -41,10 +41,10 @@ jobs:
       # https://pytest.org
       # https://nose.readthedocs.io
       - run:
-          name: run tests
+          name: run Test
           command: |
             . venv/bin/activate
-            python Tommy_SmokeTest.py test
+            python Tommy_SmokeTest.py 
 
       - store_artifacts:
           path: test-reports
