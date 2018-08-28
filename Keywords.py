@@ -15,6 +15,7 @@ Email_Add = "eagalleto@gmail.com"
 Password = "Tommy123"
 
 #For AddContact_NewChat
+# SelectorClass_AddNewMenu = "icon-newchat"
 SelectorClass_AddNewMenu = "icon-newchat"
 SelectorClass_AddNewMenu_NewChat = "popover-inner"
 SelectorClass_AddNewMenu_NewChatCheckBox = "label-checkbox"
@@ -66,3 +67,4 @@ SelectorId_Feedback = "about-external"
 #Team Creation
 Email_Add2 = "kioskigal@gmail.com"
 SelectorId_SidebarTeamIcon = "menu-team"
+SelectorId_SidebarTask = "menu-tasks"

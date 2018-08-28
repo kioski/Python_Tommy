@@ -15,10 +15,10 @@ class TommyTests(unittest.TestCase):
     def setUp(self):
 
         # self.driver = webdriver.Remote(command_executor,desired_capabilities_ios)
-        self.driver = webdriver.Remote(command_executor,desired_capabilities_android)
+        # self.driver = webdriver.Remote(command_executor,desired_capabilities_android)
 
-        # self.driver = webdriver.Chrome('D:\webdriver\chromedriver')
-        # self.driver.maximize_window()
+        self.driver = webdriver.Chrome('D:\webdriver\chromedriver')
+        self.driver.maximize_window()
 
         self.driver.get("https://app.mytommy.com/")
 
@@ -70,7 +70,7 @@ class TommyTests(unittest.TestCase):
         driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
         driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
         WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
-        time.sleep(3)
+        time.sleep(5)
         WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
         driver.find_element_by_class_name(SelectorClass_AddNewMenu).click()
         WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
@@ -114,12 +114,14 @@ class TommyTests(unittest.TestCase):
         driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
         driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
         WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
-        time.sleep(3)
+        time.sleep(5)
+        WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
         driver.find_element_by_class_name(SelectorClass_AddNewMenu).click()
         WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_AddNewMenu)))
-        time.sleep(3)
+        time.sleep(5)
         (driver.find_element_by_class_name(SelectorClass_AddNewMenu_NewChat).find_elements_by_tag_name("a"))[1].click()
         WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_AddNewMenu_Invite)))
+        time.sleep(3)
         driver.find_element_by_id(SelectorId_AddNewMenu_Invite).click()
         WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_AddNewMenu_Overlay)))
         time.sleep(1)
@@ -196,6 +198,7 @@ class TommyTests(unittest.TestCase):
         time.sleep(2)
         driver.find_element_by_id(SelectorId_SidebarExpand).click()
         WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_SideBarChatIcon), "Chats"))
+        time.sleep(5)
         (driver.find_element_by_id(SelectorId_AdministrationMenu).find_elements_by_tag_name("img"))[1].click()
         WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, SelectorClass_About_InviteFriend)))
         (driver.find_element_by_id(SelectorId_About).find_elements_by_tag_name("a"))[0].click()
@@ -268,6 +271,49 @@ class TommyTests(unittest.TestCase):
 
 
 
+
+
+
+
+
+
+    # def test_1mCreateTask(self):
+
+    #     driver = self.driver
+
+    #     #For Login
+    #     WebDriverWait(driver, 30).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_LoginUserName)))
+    #     time.sleep(5)
+    #     driver.find_element_by_name(SelectorName_Username).send_keys(Email_Add2)
+    #     driver.find_element_by_class_name(SelectorClass_NextButton).click()
+    #     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_SubmitButton)))
+    #     time.sleep(1)
+    #     driver.find_element_by_class_name(SelectorClass_LoginPassword).send_keys(Password)
+    #     driver.find_element_by_class_name(SelectorClass_SubmitButton).click()
+    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_ChatIcon)))
+    #     driver.find_element_by_id(SelectorId_SidebarExpand).click()
+    #     WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_Administrator), "Administration"))
+    #     time.sleep(10)
+    #     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.ID, SelectorId_SidebarTask)))
+    #     driver.find_element_by_id(SelectorId_SidebarTask).click()
+    #     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.ID, "tasks__tasks")))
+    #     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "list-footer")))
+    #     driver.find_element_by_class_name("f7-icons").click()
+
+
+        # (driver.find_element_by_id(SelectorId_AdministrationMenu).find_elements_by_tag_name("img"))[0].click()
+        # WebDriverWait(driver, 10).until(expected_conditions.text_to_be_present_in_element((By.CLASS_NAME, SelectorClass_LogoutButton),"Logout"))
+        # time.sleep(1)
+        # driver.find_element_by_class_name(SelectorClass_LogoutButton).click()
+        # time.sleep(1)
+        # WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, SelectorClass_NextButton)))
+
+        # if self.assertEqual("Email address / Phone", driver.find_element_by_class_name(SelectorName_Username).get_attribute("placeholder")) is True:
+        #     False
+
+
+    def tearDown(self):
+        self.driver.quit()
 
 
 
