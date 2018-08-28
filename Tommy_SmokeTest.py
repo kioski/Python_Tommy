@@ -15,10 +15,10 @@ class TommyTests(unittest.TestCase):
     def setUp(self):
 
         # self.driver = webdriver.Remote(command_executor,desired_capabilities_ios)
-        # self.driver = webdriver.Remote(command_executor,desired_capabilities_android)
+        self.driver = webdriver.Remote(command_executor,desired_capabilities_android)
 
-        self.driver = webdriver.Chrome('D:\webdriver\chromedriver')
-        self.driver.maximize_window()
+        # self.driver = webdriver.Chrome('D:\webdriver\chromedriver')
+        # self.driver.maximize_window()
 
         self.driver.get("https://app.mytommy.com/")
 
